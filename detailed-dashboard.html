@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarText" style="margin-left: 2rem">
+                <h2 class="portal-title">Healthcare Asset Portal</h2>
+            </div>
+        </nav>
+    </div>
+    <div class="container details-container mt-2">
+        <div class="mt-2 row">
+            <div class="content-header col-md-12">
+                <div class="card-title-header">
+                    <h1 class="asset-name font-weight-bolder details-heading"></h1>
+                </div>
+                <div class="ratings-container">
+                    <div class="rating details-rating">
+                        <input type="radio" name="rating" value="5" id="5">
+                        <label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4" checked><label for="4">☆</label> <input type="radio"
+                            name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2"
+                            id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div>
+                    <div class="details-rating-reviews">
+                        <h7>150 ratings</h7>
+                    </div>
+                </div>
+                <div class="content-holder panel-container details-banner mt-2">
+                    <div class="row details-banner-row">
+                        <div class="col-md-4">
+                            <div class="header-content row no-gutters">
+                                <p class="content-label col-md-5">Asset Category:</p>
+                                <p class="content-data col-md-7 asset-category"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header-content row no-gutters">
+                                <p class="content-label col-md-5">Industry:</p>
+                                <p class="content-data col-md-7 asset-industry"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="header-content row no-gutters">
+                                <p class="content-label col-md-6">Domain/Target Capability:</p>
+                                <p class="content-data col-md-6 asset-domain"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row details-banner-row">
+                        <div class="col-md-4">
+                            <div class="header-content row no-gutters">
+                                <p class="content-label col-md-5">PPMD:</p>
+                                <p class="content-data col-md-7 asset-ppmd"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="header-content row no-gutters">
+                                <p class="content-label col-md-5">PoC:</p>
+                                <p class="content-data col-md-7 asset-poc"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+        <div class="mt-2 row">
+            <div class="content-header col-md-9">
+                <div class="mt-3">
+                    <section class="card-lg usage-guideline-container details-cards ">
+                        <h5 class="font-weight-bold details-card-heading "> Asset Description </h5>
+                        <div class="tagging-content" id="usage-content">
+                            <div class="tagging-block scrollbar-dusty-grass thin square">
+                                <p class="copy-normal tagging-info asset-description">
+                                
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="card-lg usage-guideline-container details-cards">
+                        <h5 class="font-weight-bold details-card-heading"> Key
+                            KPIs/Value Delivered </h5>
+                        <div class="tagging-content" id="usage-content">
+                            <div class="tagging-block scrollbar-dusty-grass thin square">
+                                
+                                    <ul class="key-kpis copy-normal tagging-info asset-kpis">
+
+                                    </ul>
+                               
+                            </div>
+                        </div>
+                    </section>
+                    <section class="card-lg usage-guideline-container details-cards">
+                        <h5 class="font-weight-bold details-card-heading" > Next Gen
+                            Tech / Core Capabilities </h5>
+                        <div class="tagging-content" id="usage-content">
+                            <div class="tagging-block scrollbar-dusty-grass thin square">
+                                <ul class="next-gen copy-normal tagging-info asset-capabilities">
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="card-lg usage-guideline-container details-cards">
+                        <h5 class="font-weight-bold details-card-heading"> Key
+                            Accounts/ Clients </h5>
+                        <div class="tagging-content" id="usage-content">
+                            <div class="tagging-block scrollbar-dusty-grass thin square">
+                                
+                                 <ul class="client-list copy-normal tagging-info asset-clients "></ul>
+                                
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mt-3 text-md-center">
+                    <div class="d-flex asset-info">
+                        <div class="card-data-min">
+                            <h4 class="head-color font-weight-bold">Asset Maturity</h4>
+                            <p class="data-color asset-maturity">2 Years</p>
+                        </div>
+                        <div class="card-data-min">
+                            <h4 class="head-color font-weight-bold">Client Project Completed</h4>
+                            <p class="data-color project-completed"></p>
+                        </div>
+                        <div class="card-data-min">
+                            <h4 class="head-color font-weight-bold">Clients Live On</h4>
+                            <p class="data-color asset-live-on"></p>
+                        </div>
+                        <div class="card-data-min">
+                            <h4 class="head-color font-weight-bold">Avg. POC Timing</h4>
+                            <p class="data-color asset-poc-timing">8 Weeks</p>
+                        </div>
+                        <div class="card-data-min">
+                            <h4 class="head-color font-weight-bold">Positive Client Feedback %</h4>
+                            <p class="data-color client-feedback"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <div class="justify-content-start">
+            <a href="index.html">
+                Back to search results
+            </a>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
