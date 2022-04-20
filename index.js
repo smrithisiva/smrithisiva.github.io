@@ -1,7 +1,7 @@
 var lookup = {}; //dropdown data
 var jsonData = {}; //card data
-var excelURL = "https://smrithisiva.github.io/POC-HCA/DB.csv"; //Card details are available in this csv
-var dropdownURL = "https://smrithisiva.github.io/POC-HCA/DB-DropdownValues.csv"; //IMOcategory to Giftbasket relation is available in this csv
+var excelURL = "https://smrithisiva.github.io/DB.csv"; //Card details are available in this csv
+var dropdownURL = "https://smrithisiva.github.io/DB-DropdownValues.csv"; //IMOcategory to Giftbasket relation is available in this csv
 $(window).on('load',function () {
     var pageUrl = window.location.href;
     if (pageUrl.includes('detailed-dashboard')) {
